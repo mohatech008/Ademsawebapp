@@ -4,7 +4,7 @@ import HeroSection from '../Components/HeroSection';
 import PillarsSection from '../Components/PillarsSection';
 import ProgramsSection from '../Components/ProgramsSection';
 import TestimonialsSection from '../Components/TestimonialSection';
-import VolunteerSection from '../Components/Volunteersection';
+import VolunteerSection from '../Components/VolunteerSection';
 import ProgramCard from '../Components/ProgramCard';
 import { Link } from 'react-router-dom';
 function HomePage() {
