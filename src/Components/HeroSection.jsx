@@ -1,5 +1,6 @@
 import React from "react";
 import { HashLink } from 'react-router-hash-link';
+
 function HeroSection() {
   return (
     <header className="relative pt-8 md:pt-20 min-h-[100svh] flex items-center justify-center overflow-hidden">
@@ -44,20 +45,28 @@ function HeroSection() {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
-          <HashLink smooth to="/#programs">
-          <button className="w-full sm:w-auto group relative px-8 py-3 md:py-4 bg-teal-500 text-white font-bold rounded-xl overflow-hidden shadow-2xl transition hover:bg-teal-600 active:scale-95">
+          
+          {/* Explore Programs Button - Refactored */}
+          <HashLink 
+            smooth 
+            to="/#programs" 
+            className="w-full sm:w-auto group relative px-8 py-3 md:py-4 bg-teal-500 text-white font-bold rounded-xl overflow-hidden shadow-2xl transition hover:bg-teal-600 active:scale-95 inline-flex justify-center items-center"
+          >
             <span className="relative z-10">Explore Programs</span>
             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-          </button>
           </HashLink>
           
-          <HashLink smooth to="/#volunteer">
-          <button className="w-full sm:w-auto px-8 py-3 md:py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold rounded-xl hover:bg-white/20 transition active:scale-95">
+          {/* Join Our Network Button - Refactored to point to #join-form directly */}
+          <HashLink
+            smooth
+            to="/#join-form"
+            className="w-full sm:w-auto px-8 py-3 md:py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold rounded-xl hover:bg-white/20 transition active:scale-95 inline-flex justify-center items-center cursor-pointer"
+          >
             Join Our Network
-          </button>
           </HashLink>
-        </div>
 
+        </div> 
+        
         {/* Stats */}
         <div className="mt-10 md:mt-16 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 border-t border-white/10 pt-8">
           <div className="text-center">

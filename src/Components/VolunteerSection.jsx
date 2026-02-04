@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Users, BookOpen, Stethoscope, Share2, CheckCircle, Loader2, AlertCircle } from 'lucide-react';
-import {supabase} from '../utils/supabaseClient'; // Adjust path based on your file structure
+import { supabase } from '../utils/supabaseClient'; // Adjust path based on your file structure
 
 function VolunteerSection() {
   const [submitted, setSubmitted] = useState(false);
@@ -65,7 +65,7 @@ function VolunteerSection() {
   ];
 
   return (
-    <section id="volunteer" className="scroll-mt-28 py-24 bg-slate-50">
+    <section id="volunteer" className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6">
         
         <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -91,7 +91,11 @@ function VolunteerSection() {
           </div>
 
           {/* RIGHT SIDE: The Form */}
-          <div className="bg-white p-8 md:p-10 rounded-3xl border border-gray-100 relative overflow-hidden shadow-xl">
+          {/* FIX: Moved id="join-form" out of className and increased scroll margin for mobile */}
+          <div 
+            id="join-form" 
+            className="bg-white p-8 md:p-10 rounded-3xl border border-gray-100 relative overflow-hidden shadow-xl scroll-mt-32"
+          >
             {/* Background decoration */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-full -mr-16 -mt-16 z-0"></div>
             
