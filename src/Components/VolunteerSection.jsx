@@ -6,13 +6,16 @@ function VolunteerSection() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  
+  // NEW: State specifically for the unique email error
+  const [emailError, setEmailError] = useState('');
 
   // Form State
   const [formData, setFormData] = useState({
     full_name: '',
     phone: '',
     email: '',
-    expertise: 'Medical / Nursing', // Default value matches select option
+    expertise: 'Medical / Nursing',
     message: ''
   });
 
@@ -29,6 +32,7 @@ function VolunteerSection() {
     e.preventDefault();
     setLoading(true);
     setError(null);
+    setEmailError(''); // Reset specific email error on new submit attempt
 
     try {
       const { error: supabaseError } = await supabase
@@ -43,7 +47,17 @@ function VolunteerSection() {
           },
         ]);
 
-      if (supabaseError) throw supabaseError;
+      if (supabaseError) {
+        // CHECK: Postgres error code 23505 means Unique Violation (Duplicate Entry)
+        if (supabaseError.code === '23505') {
+          setEmailError('This email is already registered. Please use a different one.');
+          setLoading(false); // Stop loading, but don't show generic error
+          return; // Stop execution here
+        }
+        
+        // If it's not a duplicate error, throw it to be caught by the generic handler
+        throw supabaseError;
+      }
 
       // Success
       setSubmitted(true);
@@ -53,7 +67,10 @@ function VolunteerSection() {
       console.error('Submission error:', err);
       setError(`Failed to submit: ${err.message}`);
     } finally {
-      setLoading(false);
+      // Only set loading false here if we didn't return early for the email error
+      if (!emailError) {
+        setLoading(false);
+      }
     }
   };
 
@@ -91,7 +108,6 @@ function VolunteerSection() {
           </div>
 
           {/* RIGHT SIDE: The Form */}
-          {/* FIX: Moved id="join-form" out of className and increased scroll margin for mobile */}
           <div 
             id="join-form" 
             className="bg-white p-8 md:p-10 rounded-3xl border border-gray-100 relative overflow-hidden shadow-xl scroll-mt-32"
@@ -106,7 +122,7 @@ function VolunteerSection() {
                 
                 <form onSubmit={handleSubmit} className="space-y-4">
                   
-                  {/* Error Message Display */}
+                  {/* Generic Error Message Display (For non-email errors) */}
                   {error && (
                     <div className="p-3 bg-red-50 text-red-600 text-sm rounded-lg flex items-center gap-2 mb-4">
                       <AlertCircle size={16} />
@@ -141,6 +157,7 @@ function VolunteerSection() {
                     </div>
                   </div>
 
+                  {/* MODIFIED EMAIL FIELD SECTION */}
                   <div className="flex flex-col">
                     <label className="text-xs font-bold text-gray-400 uppercase mb-1 ml-1">Email Address</label>
                     <input 
@@ -148,10 +165,23 @@ function VolunteerSection() {
                       type="email" 
                       name="email"
                       value={formData.email}
-                      onChange={handleChange}
+                      onChange={(e) => {
+                        handleChange(e);
+                        if (emailError) setEmailError(''); // Clear error immediately when user starts typing
+                      }}
                       placeholder="john@example.com" 
-                      className="p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-teal-500 outline-none transition" 
+                      className={`p-3 border rounded-xl outline-none transition
+                        ${emailError 
+                          ? 'bg-red-50 border-red-500 focus:ring-2 focus:ring-red-200' 
+                          : 'bg-gray-50 border-gray-200 focus:ring-2 focus:ring-teal-500'
+                        }`}
                     />
+                    {/* The Red Error Text */}
+                    {emailError && (
+                      <p className="text-red-500 text-xs mt-1 ml-1 font-medium animate-in slide-in-from-top-1">
+                        {emailError}
+                      </p>
+                    )}
                   </div>
 
                   <div className="flex flex-col">
@@ -205,7 +235,10 @@ function VolunteerSection() {
                 <h3 className="text-3xl font-bold text-blue-900 mb-2">Application Received!</h3>
                 <p className="text-gray-600">Thank you for your interest. Our team will contact you via Phone or Email within 48 hours.</p>
                 <button 
-                  onClick={() => setSubmitted(false)} 
+                  onClick={() => {
+                    setSubmitted(false);
+                    setEmailError(''); // Ensure error is clear if they go back
+                  }} 
                   className="mt-8 text-teal-600 font-bold border-b-2 border-teal-500 hover:text-teal-700"
                 >
                   Send another application
