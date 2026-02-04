@@ -56,10 +56,16 @@ function AboutPage() {
       image: "/Images/Adoy.jpeg"
     },
     {
-      name: "Yaqub Maalim",
+      name: "Abdinasir Musa",
       role: "Organizing Secretary",
-      bio: "Passionate about medicine and coordinating our volunteer health network.",
-      image: "/Images/yaqub.jpeg"
+      bio: "Clinical Officer.",
+      image: "/Images/abdinasir.jpeg"
+    },
+    {
+      name: "Fardowsa Adan",
+      role: "Vice Organizing Secretary",
+      bio: "community Health Worker.",
+      image: "/Images/Fardowsa.jpeg"
     }
   ];
 
