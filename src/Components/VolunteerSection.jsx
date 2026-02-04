@@ -65,7 +65,7 @@ function VolunteerSection() {
   ];
 
   return (
-    <section id="volunteer" className="py-24 bg-slate-50">
+    <section id="volunteer" className="scroll-mt-28 py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6">
         
         <div className="grid lg:grid-cols-2 gap-16 items-start">
