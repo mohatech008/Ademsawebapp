@@ -71,7 +71,7 @@ function Footer() {
             <li className="flex items-center gap-3">
               <Mail size={18} className="text-teal-500 shrink-0" /> 
               {/* Added clickable email link */}
-              <a href="mailto:info@ademasajida.com" className="hover:text-teal-400 transition">
+              <a href="mailto:info@ademasajidahealthnetwork.com" className="hover:text-teal-400 transition">
                info@ademasajidahealthnetwork.com
               </a>
             </li>
