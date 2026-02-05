@@ -21,36 +21,31 @@ function Footer() {
           </p>
         </div>
 
-        {/* Column 2: Quick Links (REFACTORED) */}
+        {/* Column 2: Quick Links */}
         <div>
           <h2 className="text-xl font-semibold text-white mb-4">Quick Links</h2>
           <ul className="space-y-3">
             <li>
-              {/* Go to Dedicated Page */}
               <Link to="/about" className="hover:text-blue-400 transition flex items-center gap-2">
                 About Us
               </Link>
             </li>
             <li>
-              {/* Scroll to Programs Section */}
               <HashLink smooth to="/#programs" className="hover:text-blue-400 transition flex items-center gap-2">
                 Our Programs
               </HashLink>
             </li>
             <li>
-              {/* Scroll to Impact/Activities Section */}
               <HashLink smooth to="/#impact" className="hover:text-blue-400 transition flex items-center gap-2">
                 Events & Activities
               </HashLink>
             </li>
             <li>
-              {/* Scroll to Volunteer/Contact Form */}
               <HashLink smooth to="/#volunteer" className="hover:text-blue-400 transition flex items-center gap-2">
                 Contact / Volunteer
               </HashLink>
             </li>
             <li>
-              {/* Added Donate Link */}
               <Link to="/donate" className="text-teal-400 font-bold hover:text-white transition flex items-center gap-2">
                 Donate Now
               </Link>
@@ -68,11 +63,17 @@ function Footer() {
             </li>
             <li className="flex items-center gap-3">
               <Phone size={18} className="text-teal-500 shrink-0" /> 
-              <span>+254 114 133 796</span>
+              {/* Added clickable phone link */}
+              <a href="tel:+254114133796" className="hover:text-teal-400 transition">
+                +254 114 133 796
+              </a>
             </li>
             <li className="flex items-center gap-3">
               <Mail size={18} className="text-teal-500 shrink-0" /> 
-              <span>info@ademasajida.com</span>
+              {/* Added clickable email link */}
+              <a href="mailto:info@ademasajida.com" className="hover:text-teal-400 transition">
+               info@ademasajidahealthnetwork.com
+              </a>
             </li>
           </ul>
 
