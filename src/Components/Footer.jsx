@@ -72,7 +72,7 @@ function Footer() {
             </li>
             <li className="flex items-center gap-3">
               <Mail size={18} className="text-teal-500 shrink-0" /> 
-              <span>info@ademasajida.org</span>
+              <span>info@ademasajida.com</span>
             </li>
           </ul>
 

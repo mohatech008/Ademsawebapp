@@ -219,12 +219,13 @@ function AboutPage() {
                 Make a Donation
               </button>
             </Link>
-            <HashLink to="/#volunteer">
-              <button className="w-full sm:w-auto bg-white text-blue-900 font-bold py-4 px-10 rounded-xl hover:bg-gray-100 transition shadow-lg text-lg transform hover:-translate-y-1">
-                Join as Volunteer
-              </button>
-
-            </HashLink>
+            <HashLink
+                        smooth
+                        to="/#join-form"
+                        className="w-full sm:w-auto px-8 py-3 md:py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold rounded-xl hover:bg-white/20 transition active:scale-95 inline-flex justify-center items-center cursor-pointer"
+                      >
+                        Join Our Network
+                      </HashLink>
           </div>
         </div>
       </section>

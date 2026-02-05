@@ -9,7 +9,7 @@ function Navbar() {
   const navLinks = [
     {name: 'About Us', href: '/about' },
     { name: 'Programs', href: '/#programs' }, // Changed to #impact per your request
-    { name: 'Get Involved', href: '/#volunteer' },
+    { name: 'Get Involved', href: '/#join-form' },
   ];
   return (
     <nav className="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-md shadow-md z-[100]">
