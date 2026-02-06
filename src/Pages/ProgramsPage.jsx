@@ -134,11 +134,26 @@ function ProgramsPage() {
         <p className="text-lg text-gray-700 leading-relaxed">
           These campaigns are collaborative efforts with local health experts and community leaders, tailored to the specific needs of the areas we serve.
         </p>
-        <div className="text-center mt-8">
-          <Link to="/volunteer" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
-            Join an Awareness Campaign
-          </Link>
-        </div>
+       <div className="text-center mt-8 px-4">
+  <Link
+    to="/volunteer"
+    className="
+      inline-block
+      w-full sm:w-auto
+      bg-blue-600 hover:bg-blue-700
+      text-white font-bold
+      py-3 px-6
+      rounded-full shadow-lg
+      transition duration-300 ease-in-out
+      transform hover:scale-105
+      text-sm sm:text-base
+      whitespace-normal
+    "
+  >
+    Join an Awareness Campaign
+  </Link>
+</div>
+
       </section>
 
       <section id="skill-share" className="mb-16 bg-white p-8 rounded-lg shadow-lg">
@@ -156,17 +171,53 @@ function ProgramsPage() {
         </div>
       </section>
 
-      {/* Call to action */}
-      <div className="text-center py-10 bg-blue-100 rounded-lg shadow-inner">
-        <h2 className="text-4xl font-bold text-gray-800 mb-4">Want to support our work?</h2>
-        <p className="text-xl text-gray-700 mb-8">Your contribution helps us expand our reach and impact.</p>
-        <Link to="/volunteer" className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 mr-4">
-          Volunteer Today
-        </Link>
-        <a href="https://example.com/donate" target="_blank" rel="noopener noreferrer" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
-          Make a Donation
-        </a>
-      </div>
+     {/* Call to action */}
+<div className="text-center py-10 bg-blue-100 rounded-lg shadow-inner px-4">
+  <h2 className="text-4xl font-bold text-gray-800 mb-4">
+    Want to support our work?
+  </h2>
+
+  <p className="text-xl text-gray-700 mb-8">
+    Your contribution helps us expand our reach and impact.
+  </p>
+
+  {/* Buttons */}
+  <div className="flex flex-col sm:flex-row justify-center gap-4">
+    <Link
+      to="/volunteer"
+      className="
+        bg-green-500 hover:bg-green-600
+        text-white font-bold
+        py-3 px-6
+        rounded-full shadow-lg
+        transition duration-300 ease-in-out
+        transform hover:scale-105
+        w-full sm:w-auto
+        text-sm sm:text-base
+      "
+    >
+      Volunteer Today
+    </Link>
+
+    <a
+      href="https://example.com/donate"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        bg-blue-500 hover:bg-blue-600
+        text-white font-bold
+        py-3 px-6
+        rounded-full shadow-lg
+        transition duration-300 ease-in-out
+        transform hover:scale-105
+        w-full sm:w-auto
+        text-sm sm:text-base
+      "
+    >
+      Make a Donation
+    </a>
+  </div>
+</div>
 
     </div>
   );
