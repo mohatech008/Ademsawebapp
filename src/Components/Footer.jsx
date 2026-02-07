@@ -10,10 +10,18 @@ function Footer() {
         
         {/* Column 1: About / Brand */}
         <div>
-          <HashLink smooth to="/#top" className="inline-block">
-            <h2 className="text-2xl font-bold text-white mb-4 hover:text-teal-400 transition">
-              Ademasajida Health Network
-            </h2>
+          <HashLink smooth to="/#top" className="inline-block group">
+            {/* Flex container to align Logo and Text */}
+            <div className="flex items-center gap-3 mb-4">
+              <img 
+                src="Images/Ademsa-logo.jpg" 
+                alt="Ademasajida Logo" 
+                className="h-12 w-12 rounded-full border-2 border-teal-500 shadow-sm" 
+              />
+              <h2 className="text-2xl font-bold text-white group-hover:text-teal-400 transition">
+                Ademasajida Health Network
+              </h2>
+            </div>
           </HashLink>
           <p className="text-gray-400 leading-relaxed">
             We are dedicated to promoting health awareness, empowering communities, 

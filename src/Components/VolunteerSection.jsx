@@ -139,7 +139,7 @@ function VolunteerSection() {
                         name="full_name"
                         value={formData.full_name}
                         onChange={handleChange}
-                        placeholder="John Doe" 
+                        placeholder="Peter Okumu" 
                         className="p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-teal-500 outline-none transition" 
                       />
                     </div>
@@ -169,7 +169,7 @@ function VolunteerSection() {
                         handleChange(e);
                         if (emailError) setEmailError(''); // Clear error immediately when user starts typing
                       }}
-                      placeholder="john@example.com" 
+                      placeholder="abdi@example.com" 
                       className={`p-3 border rounded-xl outline-none transition
                         ${emailError 
                           ? 'bg-red-50 border-red-500 focus:ring-2 focus:ring-red-200' 
